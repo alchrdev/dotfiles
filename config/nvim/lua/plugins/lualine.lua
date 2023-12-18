@@ -8,6 +8,9 @@ local function diff_source()
     }
   end
 end
+-- Bubbles config for lualine
+-- Author: lokesh-krishna
+-- MIT license, see LICENSE for more details.
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -19,8 +22,8 @@ return {
       options = {
         theme = "auto",
         icons_enabled = true,
-        section_separators = "",
-        component_separators = "",
+        component_separators = '|',
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {
             'help',
@@ -42,38 +45,29 @@ return {
         },
       },
       sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          -- "filename",
-          -- {
-          --   "filetype",
-          --   icon_only = true,
-          --   separator = "",
-          --   padding = {
-          --     left = 1, right = 0 }
-          -- },
+        lualine_a = {
+          { 'mode', separator = { left = '' }, right_padding = 2 },
+        },
+        lualine_b = {
           {
             "filename",
-            path = 1,
             symbols = {
               modified = "󱩼",
               readonly = "",
               unnamed = ""
             }
-          },
-          { "diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } },
-          { "searchcount" }
+          }
         },
-        lualine_x = { "mode", { 'diff', source = diff_source }, { 'b:gitsigns_head', icon = '' }, "progress" },
+        lualine_c = { { "diagnostics", sources = { "nvim_lsp" }, symbols = { error = " ", warn = " ", info = " " } }, { "searchcount" }},
+        lualine_x = { {'diff',  source = diff_source }, { 'b:gitsigns_head', separator = { left = '' },  icon = '' }},
         lualine_y = {},
-        lualine_z = {},
+        lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 }},
       },
       inactive_sections = {
-        lualine_a = {},
+        lualine_a = { "filename" },
         lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_c = {},
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
       },
@@ -82,18 +76,18 @@ return {
     }
 
     -- Make statusbar transparent
-  --   local custom_theme = require("lualine.themes.gruvbox")
-  --     for _, mode in pairs(custom_theme) do
-  --       for section_name, section in pairs(mode) do
-  --         if section_name ~= "a" then
-  --           section.bg = "none"
-  --         end
-  --       end
-  --     end
-  --     require("lualine").setup({
-  --       options = {
-  --         theme = custom_theme,
-  --       },
-  --     })
+    --   local custom_theme = require("lualine.themes.gruvbox")
+    --     for _, mode in pairs(custom_theme) do
+    --       for section_name, section in pairs(mode) do
+    --         if section_name ~= "a" then
+    --           section.bg = "none"
+    --         end
+    --       end
+    --     end
+    --     require("lualine").setup({
+    --       options = {
+    --         theme = custom_theme,
+    --       },
+    --     })
   end,
 }

@@ -12,8 +12,13 @@ local plugins = {
     {
       "echasnovski/mini.comment",
       event = "VeryLazy",
-      config = function(_, opts)
-        require("mini.comment").setup(opts)
+      opts = {},
+      config = function(_, _)
+        require("mini.comment").setup()
+        require('nvim-treesitter.configs').setup {
+          enable_autocmd = false,
+        }
+        vim.g.skip_ts_context_commentstring_module = true
       end,
     },
     -- auto tags
@@ -72,6 +77,23 @@ local plugins = {
       build = function()
         vim.fn["mkdp#util#install"]()
       end,
+    },
+    -- indent guides
+    {
+      event = { "BufReadPost", "BufNewFile" },
+      "lukas-reineke/indent-blankline.nvim",
+      main = "ibl",
+      opts = {
+        indent = {
+          char = "┊",
+        },
+        exclude = {
+          filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy" },
+        },
+        scope = {
+          enabled = false,
+        },
+      }
     },
     -- git
     {

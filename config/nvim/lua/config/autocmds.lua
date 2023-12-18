@@ -1,11 +1,12 @@
 local api = vim.api
 
+-- don't auto comment new line
+
 local colors = {
-  fg = "#34364C",
-  bg = "#1A1B26",
+  fg = "#2D2E30",
+  bg = "#232b33",
 }
 
--- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 --- Remove all trailing whitespace on save
@@ -93,7 +94,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     -- CursorLine
     vim.cmd('highlight CursorLine guibg=none guifg=none')
     -- Harpoon
-    vim.cmd('highlight HarpoonBorder guibg=none guifg=#34364C')
+    vim.cmd('highlight HarpoonBorder guibg=none guifg=#2D2E30')
   end,
 })
 
