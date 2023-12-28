@@ -1,10 +1,9 @@
 local api = vim.api
 
 -- don't auto comment new line
-
 local colors = {
-  fg = "#2D2E30",
-  bg = "#232b33",
+  fg = "#24283b",
+  bg = "#1f2335",
 }
 
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })

@@ -1,93 +1,33 @@
--- credits and thanks to @adibhanna for customization. i only made a few small modifications
 return{
   {
-    "catppuccin/nvim",
-    enabled = true,
+    "folke/tokyonight.nvim",
+    lazy = false,
     priority = 1000,
-    name = "catppuccin",
     config = function()
-      require("catppuccin").setup({
-        background = {
-          light = "latte",
-          dark = "mocha",
-        },
-        color_overrides = {
-          mocha = {
-            rosewater = "#EA6968",
-            flamingo = "#EA6968",
-            pink = "#D39186",
-            mauve = "#D39186",
-            red = "#EA6968",
-            maroon = "#EA6968",
-            peach = "#C77A4E",
-            yellow = "#D8A657",
-            green = "#A9B665",
-            teal = "#93BF8C",
-            sky = "#93BF8C",
-            sapphire = "#93BF8C",
-            blue = "#7DAEA9",
-            lavender = "#7DAEA9",
-            text = "#D4BE98",
-            subtext1 = "#BDAE8B",
-            subtext0 = "#A69372",
-            overlay2 = "#8C7A58",
-            overlay1 = "#735F3F",
-            overlay0 = "#958272",
-            surface2 = "#4B4F51",
-            surface1 = "#2A2D2E",
-            surface0 = "#232728",
-            base = "#1F1F1F",
-            mantle = "#242424",
-            crust = "#272727",
-          },
-        },
+      require("tokyonight").setup({
+        transparent = true,
+        style = "night",
         styles = {
-          comments = { "italic" },
-          conditionals = {},
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
+          sidebars = "transparent",
+          floats = "transparent",
         },
-        transparent_background = true,
-        show_end_of_buffer = false,
-        custom_highlights = function(colors)
-          return {
-            FloatBorder = { bg = colors.surface0, fg = colors.surface0 },
-            VertSplit = { bg = colors.red, fg = colors.red },
-            CursorLineNr = { fg = colors.surface2 },
-            Pmenu = { bg = colors.base },
-            PmenuSel = { bg = colors.crust },
-            PmenuThumb = { bg = colors.crust, fg = colors.crust },
-            TelescopePromptCounter = { fg = colors.rosewater },
-            TelescopePromptPrefix = { fg = colors.rosewater },
-            TelescopePromptNormal = { bg = colors.crust },
-            TelescopeResultsNormal = { bg = colors.mantle },
-            TelescopePreviewNormal = { bg = colors.mantle },
-            TelescopePromptBorder = { bg = colors.crust, fg = colors.crust },
-            TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
-            TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
-            TelescopePromptTitle = { fg = colors.crust, bg = colors.flamingo },
-            TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
-            TelescopePreviewTitle = { fg = colors.mantle, bg = colors.mantle },
-            IndentBlanklineChar = { fg = colors.surface0 },
-            IndentBlanklineContextChar = { fg = colors.surface2 },
-            GitSignsChange = { fg = colors.peach },
-            IlluminatedWordText = { bg = colors.surface1 },
-            IlluminatedWordRead = { bg = colors.surface1 },
-            IlluminatedWordWrite = { bg = colors.surface1 },
-          }
+        on_highlights = function(hl, c)
+          local prompt = "#323244"
+          hl.TelescopeSelection = { bg = c.bg }
+          hl.TelescopeSelectionCaret = { bg = c.bg, fg = c.blue }
+          hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
+          hl.TelescopeBorder = { bg = c.bg_dark, fg = c.bg_dark }
+          hl.MatchParen = { bg = c.fg_gutter }
+          hl.TelescopePromptNormal = { bg = prompt }
+          hl.TelescopePromptBorder = { bg = prompt, fg = prompt }
+          hl.TelescopePromptTitle = { bg = prompt, fg = prompt }
+          hl.TelescopePromptPrefix = { bg = prompt, fg = c.blue }
+          hl.TelescopePreviewTitle = { bg = c.bg_dark, fg = c.bg_dark }
+          hl.TelescopeResultsTitle = { bg = c.bg_dark, fg = c.bg_dark }
         end,
       })
-
-      vim.api.nvim_command("colorscheme catppuccin")
-    end,
+      vim.cmd.colorscheme 'tokyonight-night'
+    end
   },
 }
 

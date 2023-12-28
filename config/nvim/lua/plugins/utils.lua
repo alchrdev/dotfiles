@@ -78,24 +78,7 @@ local plugins = {
         vim.fn["mkdp#util#install"]()
       end,
     },
-    -- indent guides
-    {
-      event = { "BufReadPost", "BufNewFile" },
-      "lukas-reineke/indent-blankline.nvim",
-      main = "ibl",
-      opts = {
-        indent = {
-          char = "┊",
-        },
-        exclude = {
-          filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy" },
-        },
-        scope = {
-          enabled = false,
-        },
-      }
-    },
-    -- git
+    --git
     {
       "tpope/vim-fugitive",
       config = function()
