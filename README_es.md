@@ -32,8 +32,8 @@ Por lo tanto, mi configuración podría considerarse un *Frankenstein*  de confi
   - [Visual Studio 2015 C++ redistributable](https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170) `https://aka.ms/vs/17/release/vc_redist.x64.exe`
 - **Extraíbles** (Todos estos deben ser añadidos al PATH _Variables de entorno_)
   - [Neovim](https://github.com/neovim/neovim/releases/tag/stable) `nvim-win64.zip`
-  - [Ripgrep](https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0) `ripgrep-13.0.0-x86_64-pc-windows-msvc.zip`
-  - [Mingw](https://github.com/niXman/mingw-builds-binaries/releases/tag/13.1.0-rt_v11-rev1) `x86_64-13.1.0-release-win32-seh-msvcrt-rt_v11-rev1.7z`
+  - [Ripgrep](https://github.com/BurntSushi/ripgrep/releases/tag/14.0.3) `ripgrep-14.0.3-x86_64-pc-windows-msvc.zip` (All of these must be added to the PATH _Environment Variables_)
+  - [Mingw](https://github.com/niXman/mingw-builds-binaries/releases/tag/13.2.0-rt_v11-rev1) `x86_64-13.2.0-release-win32-seh-msvcrt-rt_v11-rev1.7z`
   - [Treesitter](https://github.com/tree-sitter/tree-sitter/releases/tag/v0.20.8) `tree-sitter-windows-x64.gz`
 
 *Puedes elegir el nombre que quieras para tus carpetas, aquí te dejo un ejemplo de cómo lo tengo yo:*
