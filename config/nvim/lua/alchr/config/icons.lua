@@ -113,13 +113,13 @@ return {
       Pencil = "",
       Plus = "",
       Project = "",
-      Search = "",
+      Search = "",
       SignIn = "",
       SignOut = "",
       Tab = "󰓩",
       Table = "",
       Target = "󰀘",
-      Telescope = "",
+      Telescope = "󰭎",
       Text = "",
       Tree = "",
       Triangle = "契",
@@ -152,4 +152,6 @@ return {
       CircuitBoard = "",
     },
   }
+
+
 

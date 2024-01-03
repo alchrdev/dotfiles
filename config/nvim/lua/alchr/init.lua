@@ -1,0 +1,6 @@
+require("alchr.config.keymaps")
+require("alchr.config.colors")
+require("alchr.config.icons")
+require("alchr.config.options")
+require("alchr.config.autocmds")
+require("alchr.config.lazy")

@@ -120,19 +120,14 @@ keymap.set("i", "jk", "<ESC>", opts)
 keymap.set({'n', 'x', 'o'}, 'H', '^', opts)
 keymap.set({'n', 'x', 'o'}, 'L', '$', opts)
 
--- Todo comments
-keymap.set("n", "<leader>t", ":TodoTelescope keywords=TODO<cr>")
-keymap.set("n", "<leader>T", ":TodoTelescope keywords=TODO,FIX,FIXME,REMINDER<cr>")
-keymap.set("n", "<leader>x", ":TodoTrouble<cr>")
-keymap.set("n", "<leader>X", ":TodoTrouble keywords=TODO,FIX,FIXME<cr><cr>")
-
 -- Trouble
-keymap.set("n", "<leader>l", ":TroubleToggle document_diagnostics<cr>")
-keymap.set("n", "<leader>L", ":TroubleToggle workspace_diagnostics<cr>")
+keymap.set("n", "<leader>t", ":TroubleToggle document_diagnostics<cr>")
+keymap.set("n", "<leader>T", ":TroubleToggle workspace_diagnostics<cr>")
 
 -- Split line with X
 keymap.set('n', 'X', ':keeppatterns substitute/\\s*\\%#\\s*/\\r/e <bar> normal! ==^<cr>', { silent = true })
 
-
 -- Toggle the fold column visibility
 keymap.set('n', '<leader>fc', ':lua ToggleFoldColumn()<CR>', opts)
+
+

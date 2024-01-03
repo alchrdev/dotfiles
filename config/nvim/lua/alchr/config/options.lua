@@ -53,18 +53,20 @@ end
 
 
 -- Switches the visibility of the fold column on and off
-function _G.ToggleFoldColumn()
-    if vim.wo.foldcolumn == "0" then
-        vim.wo.foldcolumn = "1"
-    else
-        vim.wo.foldcolumn = "0"
-    end
-end
+-- function _G.ToggleFoldColumn()
+--     if vim.wo.foldcolumn == "0" then
+--         vim.wo.foldcolumn = "1"
+--     else
+--         vim.wo.foldcolumn = "0"
+--     end
+-- end
+-- 
+-- -- Toggles fold display between first and last line
+-- vim.wo.foldtext = [[v:lua.MyFoldText()]]
+-- function _G.MyFoldText()
+--   local start_line = vim.fn.getline(vim.v.foldstart)
+--   local end_line = vim.fn.getline(vim.v.foldend)
+--   return start_line:gsub("%s+$", "") .. " ... " .. end_line:gsub("^%s+", "")
+-- end
 
--- Toggles fold display between first and last line
-vim.wo.foldtext = [[v:lua.MyFoldText()]]
-function _G.MyFoldText()
-  local start_line = vim.fn.getline(vim.v.foldstart)
-  local end_line = vim.fn.getline(vim.v.foldend)
-  return start_line:gsub("%s+$", "") .. " ... " .. end_line:gsub("^%s+", "")
-end
+

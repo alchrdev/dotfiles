@@ -14,15 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Configure lazy
-require("lazy").setup({{ import =  "plugins" }, { import = "plugins.lsp" }}, {
-  checker = {
-    enabled = true,
-    concurrency = 8,
-    frequency = 24 * 60 * 60, -- 24h
-    notify = false,
-  },
-  concurrency = 8,
-  ui = {
-    border = "single",
-  },
+require("lazy").setup({
+  spec =  "alchr.plugins",
+  change_detection = { notify = false }
 })

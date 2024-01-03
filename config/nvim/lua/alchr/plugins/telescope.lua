@@ -3,11 +3,11 @@ return {
   event = 'VeryLazy',
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
-    },
-  config = function(opts)
 
+  },
+  config = function(opts)
     local actions = require("telescope.actions")
+    local icons = require("alchr.config.icons")
 
     local status, telescope = pcall(require, "telescope")
     if not status then
@@ -16,6 +16,7 @@ return {
     require('telescope').setup(opts)
 
     telescope.setup({
+      file_ignore_patterns = { "%.git/." },
       defaults = {
         mappings = {
           n = {
@@ -38,11 +39,13 @@ return {
           "--glob=!.git/*",
           "--glob=!node_modules/*",
         },
-        prompt_prefix = "   ",
-        selection_caret = " ",
+        prompt_prefix = icons.ui.Search .. " ",
+        selection_caret = icons.ui.TriangleShortArrowRight .. " ",
         initial_mode = "insert",
         select_strategy = "reset",
         sorting_strategy = "ascending",
+        color_devicons = true,
+        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         pickers = {
           find_files = {
             find_command = {
@@ -73,11 +76,20 @@ return {
       desc = "Find Files (+hidden)",
     },
     {
-      "<leader>sf",
-      function ()
-        require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
+      "<leader>sW",
+      function()
+        local word = vim.fn.expand("<cword>")
+        require("telescope.builtin").grep_string({ search = word })
       end,
-      desc = "Telescope file browser",
+      desc = "Search Word Under Cursor",
+    },
+    {
+      "<leader>su",
+      function()
+        local word = vim.fn.expand("<cWORD>")
+        require("telescope.builtin").grep_string({ search = word })
+      end,
+      desc = "Search Static Under Cursor",
     },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
     -- git
@@ -99,3 +111,4 @@ return {
     { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word" },
   },
 }
+
