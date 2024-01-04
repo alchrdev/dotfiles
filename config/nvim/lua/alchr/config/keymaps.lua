@@ -19,13 +19,13 @@ keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }
 keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, desc = "Page down" })
 keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, desc = "Page up" })
 
--- Move to window using the <ctrl> hjkl keys
+-- move to window using the <ctrl> hjkl keys
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
--- Resize window using <ctrl> arrow keys
+-- resize window using <ctrl> arrow keys
 keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
@@ -38,11 +38,11 @@ keymap.set("v", ">", ">gv")
 -- lazy
 keymap.set("n", "<leader>lz", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
--- Clear search with <esc>
+-- clear search with <esc>
 keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
--- Use n to always search forward and N to always backward
+-- use n to always search forward and N to always backward
 keymap.set("n", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -50,11 +50,11 @@ keymap.set("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search
 keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
--- Insert empty lines
+-- insert empty lines
 keymap.set("n", "<A-O>", "O<Esc>", { desc = "Insert empty line above" })
 keymap.set("n", "<A-o>", "o<Esc>", { desc = "Insert empty line below" })
 
--- Clear search, diff update and redraw
+-- clear search, diff update and redraw
 keymap.set(
   "n",
   "<leader>ur",
@@ -62,7 +62,7 @@ keymap.set(
   { desc = "Redraw / clear hlsearch / diff update" }
 )
 
--- Move Lines
+-- move Lines
 keymap.set("n", "<A-j>", ":m .+1<cr>==", { desc = "Move down" })
 keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap.set("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
@@ -77,7 +77,7 @@ keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right"})
 keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below"})
 keymap.set("n", "<leader>we", "<C-W>=", { desc = "Equalize windows"})
 
--- Buffers
+-- buffers
 keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer"})
 keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer"})
 keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer"})
@@ -101,7 +101,7 @@ keymap.set("n", "<leader>Q", "qa!<CR>", opts)
 -- new file
 keymap.set("n", "<leader>nf", "<cmd>enew<cr>", { desc = "New File" })
 
--- Paste over currently selected text without yanking it
+-- paste over currently selected text without yanking it
 keymap.set("v", "p", '"_dp"')
 keymap.set("v", "P", '"_dP"')
 
@@ -109,25 +109,21 @@ keymap.set("v", "P", '"_dP"')
 -- p puts text after the cursor,
 -- P puts text before the cursor.
 
--- Select a block of text in curly braces and copy it to the clipboard
+-- select a block of text in curly braces and copy it to the clipboard
 keymap.set("n", "YY", "va{Vy}")
 
--- Exit on jj and jk
+-- exit on jj and jk
 keymap.set("i", "jj", "<ESC>", opts)
 keymap.set("i", "jk", "<ESC>", opts)
 
--- Move to start/end of line
+-- move to start/end of line
 keymap.set({'n', 'x', 'o'}, 'H', '^', opts)
 keymap.set({'n', 'x', 'o'}, 'L', '$', opts)
 
--- Trouble
-keymap.set("n", "<leader>t", ":TroubleToggle document_diagnostics<cr>")
-keymap.set("n", "<leader>T", ":TroubleToggle workspace_diagnostics<cr>")
-
--- Split line with X
+-- split line with X
 keymap.set('n', 'X', ':keeppatterns substitute/\\s*\\%#\\s*/\\r/e <bar> normal! ==^<cr>', { silent = true })
 
--- Toggle the fold column visibility
+-- toggle the fold column visibility
 keymap.set('n', '<leader>fc', ':lua ToggleFoldColumn()<CR>', opts)
 
 

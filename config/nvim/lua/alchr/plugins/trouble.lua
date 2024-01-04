@@ -17,14 +17,14 @@ return {
       desc = "Toggle Trouble"
     },
     {
-      "<leader>tn",
+      "[d",
       function()
         require("trouble").next({skip_groups = true, jump = true });
       end,
       desc = "Next Trouble"
     },
     {
-      "<leader>tp",
+      "]d",
       function()
         require("trouble").previous({skip_groups = true, jump = true });
       end,

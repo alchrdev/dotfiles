@@ -14,9 +14,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd('highlight NormalFloat guibg=none guifg=none')
     vim.cmd('highlight FloatBorder guifg=' .. colors.fg .. ' guibg=none')
     vim.cmd('highlight NormalNC guibg=none guifg=none')
-    -- CursorLine
     vim.cmd('highlight CursorLine guibg=none guifg=none')
-    -- Harpoon
     vim.cmd('highlight HarpoonBorder guibg=none guifg=#24283b')
   end,
 })
@@ -38,6 +36,18 @@ api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
+
+-- show cursor line only in active window
+local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+  pattern = "*",
+  command = "set cursorline",
+  group = cursorGrp,
+})
+api.nvim_create_autocmd(
+  { "InsertEnter", "WinLeave" },
+  { pattern = "*", command = "set nocursorline", group = cursorGrp }
+)
 
 -- resize neovim split when terminal is resized
 vim.api.nvim_command("autocmd VimResized * wincmd =")
