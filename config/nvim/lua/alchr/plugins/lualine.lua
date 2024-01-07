@@ -60,18 +60,18 @@ return {
     }
 
     -- Make statusbar transparent
-    -- local custom_theme = require("lualine.themes.tokyonight")
-    -- for _, mode in pairs(custom_theme) do
-    --   for section_name, section in pairs(mode) do
-    --     if section_name ~= "a" then
-    --       section.bg = "none"
-    --     end
-    --   end
-    -- end
-    -- require("lualine").setup({
-    --   options = {
-    --     theme = custom_theme,
-    --   },
-    -- })
+     local custom_theme = require("lualine.themes.auto")
+     for _, mode in pairs(custom_theme) do
+       for section_name, section in pairs(mode) do
+         if section_name ~= "a" then
+           section.bg = "none"
+         end
+       end
+     end
+     require("lualine").setup({
+       options = {
+         theme = custom_theme,
+       },
+     })
   end,
 }
